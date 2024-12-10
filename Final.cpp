@@ -75,9 +75,20 @@ void showQueue(queue& q, string& boothName) {
     for (int i = 0; i < 3; ++i) addToCoffeeBooth(coffeeHead, coffeeTail);
 
     deque<Customer> muffinLine;
-    for (int i = 0, i < 3; ++i)muffinLine.push_back({getName(), getMuffin()});
+    for (int i = 0; i < 3; ++i)muffinLine.push_back({getName(), getMuffin()});
 
     vector<Customer> braceletLine;
-    for (int i = 0; i < 3; ++i)
+    for (int i = 0; i < 3; ++i)braceletLine.push_back({getName(),getBracelet()});
     stack<Customer> gameLine;
+    for (int i = 0; i < 3; ++i)gameLine.push({getName(), getGame()});
+
+    for (int round = 1; round <= 10; ++round){
+        cout << "Round: " << round << endl;
+    }
+
+    serveCoffeeCustomer(coffeeHead, coffeeTail);
+    
+
+    showQueue(muffinLine, "Muffin line");
+    showQueue(braceletLine, "braclete line");
  }
