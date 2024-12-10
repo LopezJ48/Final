@@ -54,15 +54,16 @@ void serveCoffeeCustomer(CoffeeBooth* & head, CoffeeBooth* & tail){
         cout << "Serving: " << temp ->name << "Order: " << temp ->drinks << endl;
         head = head ->next;
         if (!head) tail = nullptr;
+        delete temp;
     }else{
         cout << "Nothing to serve." << endl;
     }
 }
 
-template <typename queue>
-void showQueue(queue& q, string& boothName) {
+template <typename Queue>
+void showQueue(const Queue& q, string& boothName) {
     cout << boothName << "queue: ";
-    for (auto& customer : q){
+    for (const auto& customer : q){
         cout << customer.name << "Ordered: " << customer.order << "\n";
     }
     cout << endl;
@@ -114,7 +115,8 @@ void showQueue(queue& q, string& boothName) {
     }
     if (rand() % 2 == 0) gameLine.push({getName(), getGame()});
 
-
-    showQueue(muffinLine, "Muffin line");
-    showQueue(braceletLine, "braclete line");
+    showQueue(muffinLine, "Muffin Line");
+    showQueue(braceletLine, "Bracelet line");
+    cout << "Game line: " << gameLine.size() << endl;
+    return 0;
  }
