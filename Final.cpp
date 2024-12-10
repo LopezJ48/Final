@@ -61,7 +61,7 @@ void serveCoffeeCustomer(CoffeeBooth* & head, CoffeeBooth* & tail){
 }
 
 template <typename Queue>
-void showQueue(const Queue& q, string& boothName) {
+void showQueue(const Queue& q, const string& boothName) {
     cout << boothName << "queue: ";
     for (const auto& customer : q){
         cout << customer.name << "Ordered: " << customer.order << "\n";
@@ -85,7 +85,6 @@ void showQueue(const Queue& q, string& boothName) {
 
     for (int round = 1; round <= 10; ++round){
         cout << "Round: " << round << endl;
-    }
 
     serveCoffeeCustomer(coffeeHead, coffeeTail);
     if (rand() % 2 == 0) addToCoffeeBooth(coffeeHead, coffeeTail);
@@ -109,7 +108,7 @@ void showQueue(const Queue& q, string& boothName) {
     if(!gameLine.empty()){
         Customer servedCustomer = gameLine.top();
         gameLine.pop();
-        cout << "Serving: " << servedCustomer.name << "ordered " << servedCustomer.order << endl;
+        cout << "Serving: " << servedCustomer.name << endl << " ordered " << servedCustomer.order << endl;
     }else{
         cout << "No one to serve" << endl;
     }
@@ -118,5 +117,6 @@ void showQueue(const Queue& q, string& boothName) {
     showQueue(muffinLine, "Muffin Line");
     showQueue(braceletLine, "Bracelet line");
     cout << "Game line: " << gameLine.size() << endl;
+    }
     return 0;
  }
