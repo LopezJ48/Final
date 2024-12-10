@@ -98,13 +98,21 @@ void showQueue(queue& q, string& boothName) {
     if (rand() % 2 == 0) muffinLine.push_back({getName(), getMuffin()});
 
      if (!braceletLine.empty()){
-        cout << "Serving: " << braceletLine.front().name << " " << "Order: " << muffinLine.front().order << endl;
-        muffinLine.pop_front();
+        cout << "Serving: " << braceletLine.front().name << " " << "Order: " << braceletLine.front().order << endl;
+        braceletLine.erase(braceletLine.begin());
     }else{
         cout << "No one to serve" << endl;
     }
-    if (rand() % 2 == 0) muffinLine.push_back({getName(), getMuffin()});
+    if (rand() % 2 == 0) braceletLine.push_back({getName(), getBracelet()});
 
+    if(!gameLine.empty()){
+        Customer servedCustomer = gameLine.top();
+        gameLine.pop();
+        cout << "Serving: " << servedCustomer.name << "ordered " << servedCustomer.order << endl;
+    }else{
+        cout << "No one to serve" << endl;
+    }
+    if (rand() % 2 == 0) gameLine.push({getName(), getGame()});
 
 
     showQueue(muffinLine, "Muffin line");
