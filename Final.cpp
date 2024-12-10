@@ -67,3 +67,17 @@ void showQueue(queue& q, string& boothName) {
     }
     cout << endl;
 }
+ int main () {
+    srand(static_cast<unsigned>(time(nullptr)));
+
+    CoffeeBooth* coffeeHead = nullptr;
+    CoffeeBooth* coffeeTail = nullptr;
+    for (int i = 0; i < 3; ++i) addToCoffeeBooth(coffeeHead, coffeeTail);
+
+    deque<Customer> muffinLine;
+    for (int i = 0, i < 3; ++i)muffinLine.push_back({getName(), getMuffin()});
+
+    vector<Customer> braceletLine;
+    for (int i = 0; i < 3; ++i)
+    stack<Customer> gameLine;
+ }
