@@ -8,7 +8,7 @@ using namespace std;
 
 struct CoffeeBooth {
     string name;
-    string CoffeOrder;
+    string drinks;
     CoffeeBooth* next;
 };
 struct Customer{
@@ -48,3 +48,22 @@ void addToCoffeeBooth (CoffeeBooth* & head, CoffeeBooth* & tail) {
         }
     }
 
+void serveCoffeeCustomer(CoffeeBooth* & head, CoffeeBooth* & tail){
+    if(head) {
+        CoffeeBooth* temp = head;
+        cout << "Serving: " << temp ->name << "Order: " << temp ->drinks << endl;
+        head = head ->next;
+        if (!head) tail = nullptr;
+    }else{
+        cout << "Nothing to serve." << endl;
+    }
+}
+
+template <typename queue>
+void showQueue(queue& q, string& boothName) {
+    cout << boothName << "queue: ";
+    for (auto& customer : q){
+        cout << customer.name << "Ordered: " << customer.order << "\n";
+    }
+    cout << endl;
+}
