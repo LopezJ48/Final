@@ -18,5 +18,33 @@ struct Customer{
 
 string getName(){
 string names[] = {"Blaine","Brian","Devin","Chris","Cole"};
-    return names[rand() % 6];
+    return names[rand() % 5];
 }
+string getDrinks(){
+string names[] = {"Black","Cream","Expresso","Smoothie","Frappe"};
+    return names[rand() % 5];
+}
+string getMuffin(){
+string names[] = {"Muffin","Blueberry","Chocolate","Plain","Mix"};
+    return names[rand() % 5];
+}
+string getBracelet(){
+string names[] = {"Red","Blue","Black","green","Cyan"};
+    return names[rand() % 5];
+}
+string getGame() {
+    string games[] = {"Eldin Ring", "Minecraft","Cod","Counter Strike", "GTA 6"};
+    return games[rand() % 5];
+}
+
+void addToCoffeeBooth (CoffeeBooth* & head, CoffeeBooth* & tail) {
+    CoffeeBooth* newCustomer = new CoffeeBooth{getName(),getDrinks(), nullptr};
+    if(!head) {
+        head = tail = newCustomer;
+    }
+        else {
+            tail ->next = newCustomer;
+            tail = newCustomer;
+        }
+    }
+
